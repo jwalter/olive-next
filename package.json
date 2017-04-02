@@ -1,0 +1,20 @@
+{
+  "name": "olive-next",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joakim Waltersson",
+  "license": "ISC",
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "next": "^2.0.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "styled-jsx": "^0.5.7"
+  }
+}
