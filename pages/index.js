@@ -1,20 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import Competition from '../components/competition'
+import 'isomorphic-fetch'
 
-const mockCompetitions = ()  => {
-    //const resp = await fetch('http://liveresultat.orientering.se/api.php?method=getcompetitions')
-    //const json = await resp.json()
-    //return json.competitions
-    return [
-        {name: "Tävling 1", id: 1},
-        {name: "Tävling 2", id: 2}
-    ]
-}
 export default class extends React.Component {
     static async getInitialProps ({ req }) {
         console.log('getInitialProps');
-        return { competitions: mockCompetitions()}
+        const resp = await fetch('http://liveresultat.orientering.se/api.php?method=getcompetitions')
+        const json = await resp.json()
+        return { competitions: json.competitions }
     }
     render() {
         console.log('Props', this.props)
