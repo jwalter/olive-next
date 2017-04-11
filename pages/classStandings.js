@@ -13,7 +13,6 @@ export default class extends React.Component {
         const compId = query.compId
         const className = query.className
         const standings = await GetClassStandings({className: className, compId: compId})
-        console.log(standings)
         return standings
     }
     render() {
