@@ -1,12 +1,7 @@
 import Link from 'next/link'
 import { GetClassStandings } from '../lib/api'
-
-const Runner = ({runner}) => {
-    return <tr> 
-        <td>{ runner.name }</td>
-        <td>{ runner.result }</td>
-    </tr>
-}
+import { Runner } from '../components/runner'
+import { StandingsTable } from '../components/standingsTable'
 
 export default class extends React.Component {
     static async getInitialProps ({query}) {
@@ -18,9 +13,7 @@ export default class extends React.Component {
     render() {
         return <div>
             <h2>{this.props.url.query.className}</h2>
-            <table><tbody>
-            { this.props.results.map((result, index) => <Runner key={index} runner={result} />)}
-            </tbody></table>
+            <StandingsTable results={ this.props.results } />
             </div>
     }
 }
