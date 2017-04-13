@@ -6,7 +6,10 @@ import { StandingsTable } from '../components/standingsTable'
 export default class extends React.Component {
     constructor() {
         super()
-        this.state = { results: []}
+        this.state = { results: [],
+            updater: -1
+        }
+        this.loadStandings = this.loadStandings.bind(this)
     }
     static async getInitialProps ({query}) {
         const compId = query.compId
@@ -17,7 +20,28 @@ export default class extends React.Component {
     }
     async componentDidMount() {
         const standings = await GetClassStandings({className: this.props.className, compId: this.props.compId})
-        this.setState({results: standings.results})
+        const updater = setInterval(this.loadStandings, 2000)
+        this.setState({
+            results: standings.results,
+            lastHash: standings.hash,
+            updater: updater
+        })
+    }
+    componentWillUnmount() {
+        clearInterval(this.state.updater)
+    }
+    async loadStandings() {
+        const standings = await GetClassStandings({
+            className: this.props.className,
+            compId: this.props.compId,
+            lastHash: this.state.lastHash
+        })
+        if (standings.status !== 'NOT MODIFIED') {
+            this.setState({
+                results: standings.results,
+                lastHash: standings.hash
+            })
+        }
     }
     render() {
         return <div>
