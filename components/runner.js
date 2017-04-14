@@ -11,9 +11,15 @@ const formatTime = (sec_num) => {
 export const Runner = ({runner, splitControls}) => {
     const splits = []
     splitControls.forEach(sc => splits.push(runner.splits[sc.code]))
-    return <tr> 
+    return <tr className={runner.DT_RowClass}> 
         <td>{ runner.name }</td>
         { splits.map((s, index) => <td key={index}>{formatTime(s)}</td>) }
         <td>{ runner.result }</td>
+        <style jsx>{`
+            .new_result {
+                background-color: #F1592A;
+                color: white;
+            }
+            `}</style>
     </tr>
 }
