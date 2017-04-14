@@ -14,7 +14,8 @@ export default class extends React.Component {
     static async getInitialProps ({query}) {
         const compId = query.compId
         const className = query.className
-        return {compId: compId,
+        return {
+            compId: compId,
             className: className
         }
     }
@@ -23,6 +24,7 @@ export default class extends React.Component {
         const updater = setInterval(this.loadStandings, 2000)
         this.setState({
             results: standings.results,
+            splitControls: standings.splitcontrols,
             lastHash: standings.hash,
             updater: updater
         })
@@ -46,7 +48,7 @@ export default class extends React.Component {
     render() {
         return <div>
             <h2>{this.props.url.query.className}</h2>
-            <StandingsTable results={ this.state.results } />
+            <StandingsTable splitControls={ this.state.splitControls } results={ this.state.results } />
             </div>
     }
 }
