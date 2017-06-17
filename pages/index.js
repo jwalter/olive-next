@@ -13,7 +13,7 @@ export default class extends React.Component {
         return { competitions: [] }
     }
     async componentDidMount() {
-        const resp = await fetch('http://liveresultat.orientering.se/api.php?method=getcompetitions')
+        const resp = await fetch('https://cors.now.sh/http://liveresultat.orientering.se/api.php?method=getcompetitions')
         const json = await resp.json()
         this.setState({ competitions: json.competitions })
     }
