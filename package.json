@@ -12,9 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "next": "^2.1.1",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "next": "^2.4.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "styled-jsx": "^0.5.7"
   }
 }
