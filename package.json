@@ -1,7 +1,11 @@
 {
   "name": "olive-next",
   "version": "1.0.0",
-  "description": "",
+  "description": "O-Live written in Next.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jwalter/olive-next"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -12,9 +16,9 @@
   "license": "ISC",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "next": "^2.4.4",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "styled-jsx": "^0.5.7"
+    "next": "^6.0.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "styled-jsx": "^2.2.6"
   }
 }
