@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Competition from '../components/competition'
 import { CompetitionsTable } from '../components/competitionsTable'
-import 'isomorphic-fetch'
+import 'isomorphic-unfetch'
 
 export default class extends React.Component {
     constructor() {
