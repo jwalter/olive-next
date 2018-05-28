@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Competition from '../components/competition'
 import { CompetitionsTable } from '../components/competitionsTable'
+import { GetCompetitions } from '../lib/api'
 import 'isomorphic-unfetch'
 
 export default class extends React.Component {
@@ -13,9 +14,8 @@ export default class extends React.Component {
         return { competitions: [] }
     }
     async componentDidMount() {
-        const resp = await fetch('http://liveresultat.orientering.se/api.php?method=getcompetitions')
-        const json = await resp.json()
-        this.setState({ competitions: json.competitions })
+        const competitions = await GetCompetitions()
+        this.setState({ competitions: competitions })
     }
     render() {
         return (
