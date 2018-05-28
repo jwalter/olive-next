@@ -46,8 +46,8 @@ export default class extends React.Component {
         }
     }
     render() {
-        return <div>
-            <h2>{this.props.url.query.className}</h2>
+        return <div className="header">
+            <h1>{this.props.url.query.className}</h1>
             <StandingsTable splitControls={ this.state.splitControls } results={ this.state.results } />
             </div>
     }

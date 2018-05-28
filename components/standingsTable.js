@@ -5,11 +5,11 @@ export const StandingsTable = ({splitControls, results}) => {
     if (splitControls !== undefined) {
         splitControls.forEach(sc => splits.push(sc))
     }
-    return <table>
+    return <table className="pure-table pure-table-striped">
         <thead>
             <tr>
                 <th>Namn</th>
-                {splits.map(control => <th>{control.name}</th>)}
+                {splits.map((control, index) => <th key={index}>{control.name}</th>)}
                 <th>Mål</th>
             </tr>
         </thead>

@@ -1,7 +1,9 @@
 import Competition from '../components/competition'
 
 export const CompetitionsTable = ({competitions}) => {
-    return <div>
+    return <table className="pure-table pure-table-horizontal">
+    <tbody>
             { competitions.map(c => <Competition key={c.id} comp={c} />)}
-            </div>
+            </tbody>
+            </table>
 }
