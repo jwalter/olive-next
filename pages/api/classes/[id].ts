@@ -9,8 +9,8 @@ export default async function handler(
   const {
     query: { id },
   } = req;
-  if (id !== undefined) {
-    const eRes = await axios.get(`http://liveresultat.orientering.se/api.php?method=getcompetitioninfo&comp=${id}`);
-    res.status(200).json(eRes.data);
-  }
+  const eRes = await axios.get(
+    `http://liveresultat.orientering.se/api.php?method=getclasses&comp=${id}`
+  );
+  res.status(200).json(eRes.data.classes);
 }

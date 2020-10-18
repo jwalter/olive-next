@@ -18,6 +18,15 @@ class LiveOClient {
       isError: error,
     };
   }
+
+  useClassList(id: String | String[]) {
+    const { data, error } = useSWR(`/api/classes/${id}`, fetcher);
+    return {
+      classes: data,
+      isLoading: !error && !data,
+      isError: error,
+    };
+  }
 }
 
 const fetcher = (...args: any[]) =>
